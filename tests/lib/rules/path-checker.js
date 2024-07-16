@@ -5,12 +5,20 @@ const rule = require("../../../lib/rules/path-checker"),
 
 const ruleTester = new RuleTester();
 ruleTester.run("path-checker", rule, {
-  valid: ["value"],
+  valid: [
+    {
+      code: "import Article from 'features/Article/Article.tsx'",
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\GOOD_COURSE_test\\src\\pages\\ArticlePage",
+    },
+  ],
 
   invalid: [
     {
-      code: "This should be relative path",
-      errors: [{ messageId: "Fill me in.", type: "Me too" }],
+      code: "import Article from 'features/Article/Article.tsx'",
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\GOOD_COURSE_test\\src\\features\\Article",
+      errors: [{ message: "path should be relative" }],
     },
   ],
 });
