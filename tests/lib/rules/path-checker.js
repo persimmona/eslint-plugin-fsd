@@ -20,5 +20,16 @@ ruleTester.run("path-checker", rule, {
         "C:\\Users\\tim\\Desktop\\javascript\\GOOD_COURSE_test\\src\\features\\Article",
       errors: [{ message: "path should be relative" }],
     },
+    {
+      code: "import Article from '@/features/Article/Article.tsx'",
+      options: [
+        {
+          alias: "@/",
+        },
+      ],
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\GOOD_COURSE_test\\src\\features\\Article",
+      errors: [{ message: "path should be relative" }],
+    },
   ],
 });
